@@ -84,7 +84,8 @@ An interactive Plotly Dash application visualizing all model outputs.
 - **Player Comparison** — all 5 players across PTS, REB, AST, FG%, PLUS_MINUS
 - **Feature Importance** — which factors drive shot prediction most
 
----
+****Added sample dashboard screenshots in the ['screenshots/'] folder.**
+
 
 ## Project Structure
 
