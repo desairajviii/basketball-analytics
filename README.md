@@ -1,4 +1,4 @@
-# Timberwolves Basketball Analytics
+# Wolves Shot Analytics
 
 A basketball analytics system built to demonstrate shot prediction modeling and player performance trajectory analysis using real NBA tracking data.
 
@@ -49,9 +49,8 @@ Predicts whether a shot goes in(1) or misses(0).
 
 | Metric | Value |
 |---|---|
-| Accuracy | 63.2% |
 | F1 Score | 0.575 |
-| CV Accuracy | 61.6% ± 1.0% |
+| Accuracy | 63%|
 | Training shots | 10,928 |
 | Test shots | 2,733 |
 
@@ -173,12 +172,3 @@ Tracking data tells you where players are. Computer vision tells you how they're
 The shot difficulty score and shot prediction model in this project use location and context features. In the full research pipeline, biomechanical features are added on top - release angle, balance, and elbow position improve shot outcome prediction by capturing how a shot was taken, not just where it came from.
 
 This component is not included in this repository as it requires proprietary video footage. The methodology and implementation exist in my Northeastern research work.
-
-## Tech Stack
-
-| Category | Tools |
-|---|---|
-| Data | nba_api, pandas, numpy |
-| Modeling | XGBoost, scikit-learn |
-| Visualization | Plotly, Dash |
-| Infrastructure | Python 3.13, joblib |
