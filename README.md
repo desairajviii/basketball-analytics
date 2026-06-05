@@ -93,6 +93,7 @@ basketball-analytics/
 ├── config.py
 ├── main.py
 ├── requirements.txt
+├── screenshots
 ├── src/
 │   ├── data/
 │   │   ├── fetch_data.py
