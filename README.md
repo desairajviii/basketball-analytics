@@ -1,4 +1,4 @@
-# Timberwolves Basketball Analytics
+# Wolves Shot Analytics
 
 A basketball analytics system built to demonstrate shot prediction modeling and player performance trajectory analysis using real NBA tracking data.
 
