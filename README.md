@@ -171,5 +171,3 @@ Tracking data tells you where players are. Computer vision tells you how they're
 The shot difficulty score and shot prediction model in this project use location and context features. In the full research pipeline, biomechanical features are added on top - release angle, balance, and elbow position improve shot outcome prediction by capturing how a shot was taken, not just where it came from.
 
 This component is not included in this repository as it requires proprietary video footage. The methodology and implementation exist in my Northeastern research work.
-
-blib |
