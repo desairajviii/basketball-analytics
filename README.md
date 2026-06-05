@@ -49,7 +49,6 @@ Predicts whether a shot goes in(1) or misses(0).
 
 | Metric | Value |
 |---|---|
-| Accuracy | 63.2% |
 | F1 Score | 0.575 |
 | CV Accuracy | 61.6% ± 1.0% |
 | Training shots | 10,928 |
