@@ -172,11 +172,4 @@ The shot difficulty score and shot prediction model in this project use location
 
 This component is not included in this repository as it requires proprietary video footage. The methodology and implementation exist in my Northeastern research work.
 
-## Tech Stack
-
-| Category | Tools |
-|---|---|
-| Data | nba_api, pandas, numpy |
-| Modeling | XGBoost, scikit-learn |
-| Visualization | Plotly, Dash |
-| Infrastructure | Python 3.13, joblib |
+blib |
