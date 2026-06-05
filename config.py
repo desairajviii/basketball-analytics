@@ -1,6 +1,5 @@
 # Central configuration for the Basketball Analytics project
 
-# ── NBA API Settings ──────────────────────────────────────────
 HEADERS = {
     "Accept": "application/json, text/plain, */*",
     "Accept-Language": "en-US,en;q=0.9",
@@ -16,15 +15,12 @@ HEADERS = {
     "x-nba-stats-token": "true",
 }
 
-# ── Seasons ───────────────────────────────────────────────────
 CURRENT_SEASON = "2024-25"
 SEASONS = ["2022-23", "2023-24", "2024-25"]
 
-# ── Teams ─────────────────────────────────────────────────────
 TIMBERWOLVES_ID = 1610612750
 LAKERS_ID = 1610612747
 
-# ── Players (Timberwolves focused) ────────────────────────────
 PLAYER_IDS = {
     "Anthony Edwards": 1630162,
     "Rudy Gobert":     203497,
@@ -32,8 +28,6 @@ PLAYER_IDS = {
     "Naz Reid":        1629675,
     "Mike Conley":     201144,
 }
-
-# ── Shot Zones ────────────────────────────────────────────────
 SHOT_ZONES = [
     "Restricted Area",
     "In The Paint (Non-RA)",
@@ -44,11 +38,9 @@ SHOT_ZONES = [
     "Backcourt",
 ]
 
-# ── Model Settings ────────────────────────────────────────────
 RANDOM_STATE    = 42
 TEST_SIZE       = 0.2
 CV_FOLDS        = 5
 
-# ── Paths ─────────────────────────────────────────────────────
 RAW_DATA_PATH       = "data/raw/"
 PROCESSED_DATA_PATH = "data/processed/"

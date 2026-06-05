@@ -15,8 +15,6 @@ from dash import dcc, html, Input, Output
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import PROCESSED_DATA_PATH, PLAYER_IDS
 
-# Load Data
-
 shot_df  = pd.read_csv(os.path.join(PROCESSED_DATA_PATH, "shot_features.csv"))
 game_df  = pd.read_csv(os.path.join(PROCESSED_DATA_PATH, "game_features.csv"))
 game_df["GAME_DATE"] = pd.to_datetime(game_df["GAME_DATE"])
@@ -26,8 +24,6 @@ MODELS_DIR   = "data/processed/player_models/"
 
 PLAYERS  = sorted(shot_df["PLAYER_NAME"].unique().tolist())
 SEASONS  = sorted(shot_df["SEASON"].unique().tolist())
-
-# Timberwolves Brand Colors 
 
 NAVY    = "#1D428A"
 GREEN   = "#236192"
@@ -50,8 +46,6 @@ PLOTLY_LAYOUT = dict(
         bgcolor="rgba(0,0,0,0)",
     ),
 )
-
-# Court Drawing 
 
 def get_court_shapes():
     return [
@@ -79,8 +73,6 @@ def get_court_shapes():
              line=dict(color=SILVER, width=1.5)),
     ]
 
-
-# Shot Chart
 
 def build_shot_chart(player_name: str, season: str) -> go.Figure:
     df = shot_df[
@@ -151,8 +143,6 @@ def build_shot_chart(player_name: str, season: str) -> go.Figure:
     return fig
 
 
-# Performance Trajectory 
-
 def build_trajectory(player_name: str) -> go.Figure:
     df = game_df[game_df["PLAYER_NAME"] == player_name].sort_values("GAME_DATE")
 
@@ -216,8 +206,6 @@ def build_trajectory(player_name: str) -> go.Figure:
 
     return fig
 
-
-# Next Game Prediction 
 
 def build_prediction_panel(player_name: str) -> go.Figure:
     safe_name  = player_name.replace(" ", "_").lower()
@@ -301,8 +289,6 @@ def build_prediction_panel(player_name: str) -> go.Figure:
     return fig
 
 
-# Player Comparison 
-
 def build_comparison() -> go.Figure:
     summary = game_df.groupby("PLAYER_NAME").agg(
         PTS        = ("PTS",        "mean"),
@@ -341,8 +327,6 @@ def build_comparison() -> go.Figure:
 
     return fig
 
-
-# Feature Importance 
 
 def build_feature_importance() -> go.Figure:
     features = [
@@ -388,8 +372,6 @@ def build_feature_importance() -> go.Figure:
 
     return fig
 
-
-# Stat Cards 
 
 def get_stat_cards(player_name: str, season: str) -> list:
     df      = shot_df[(shot_df["PLAYER_NAME"] == player_name) &
@@ -440,8 +422,6 @@ def get_stat_cards(player_name: str, season: str) -> list:
     ]
 
 
-# App Layout 
-
 app = dash.Dash(__name__, title="Wolves Analytics")
 
 app.layout = html.Div(
@@ -453,7 +433,6 @@ app.layout = html.Div(
     },
     children=[
 
-        # Header
         html.Div(
             style={"marginBottom": "20px"},
             children=[
@@ -481,7 +460,6 @@ app.layout = html.Div(
             ]
         ),
 
-        # Top Bordered section
         html.Div(
             style={
                 "border":        f"1px solid rgba(192,192,192,0.15)",
@@ -492,7 +470,6 @@ app.layout = html.Div(
             },
             children=[
 
-                # Player dropdown + stat cards
                 html.Div(
                     style={"display": "flex", "gap": "20px",
                            "alignItems": "flex-end", "marginBottom": "20px",
@@ -524,14 +501,12 @@ app.layout = html.Div(
                     ]
                 ),
 
-                # 3 charts row
                 html.Div(
                     style={"display": "grid",
                            "gridTemplateColumns": "1.2fr 0.8fr 0.8fr",
                            "gap": "16px"},
                     children=[
 
-                        # Shot chart with season dropdown inside
                         html.Div(
                             style={
                                 "border":          f"1px solid rgba(192,192,192,0.1)",
@@ -589,7 +564,6 @@ app.layout = html.Div(
             ]
         ),
 
-        # Constant 2 charts
         html.Div(
             style={"display": "grid",
                    "gridTemplateColumns": "1fr 1fr",
@@ -630,7 +604,6 @@ app.layout = html.Div(
             ]
         ),
 
-        # Footer
         html.Div(
             style={"textAlign": "center", "marginTop": "24px",
                    "color": "rgba(192,192,192,0.3)", "fontSize": "11px",
@@ -641,8 +614,6 @@ app.layout = html.Div(
     ]
 )
 
-
-# Callbacks
 
 @app.callback(
     Output("shot-chart",       "figure"),
@@ -660,8 +631,6 @@ def update_all(player_name, season):
         get_stat_cards(player_name, season),
     )
 
-
-# Run
 
 if __name__ == "__main__":
     app.run(debug=True)
